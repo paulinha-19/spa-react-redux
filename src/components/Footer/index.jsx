@@ -22,7 +22,7 @@ const Copyright = (props) => {
 export const Footer = () => {
     return (
         <footer>
-            <Box sx={{ backgroundColor: "#EDEDED", widht: "100%", textAlign: "center" }}>
+            <Box sx={{ backgroundColor: "#EDEDED", widht: "100%", textAlign: "center", mt: 5 }}>
                 <Typography sx={{ pt: 2, pb: 2, fontWeight: "600" }}>
                     API-IBGE
                 </Typography>

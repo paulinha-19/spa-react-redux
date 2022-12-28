@@ -1,25 +1,23 @@
 import React from "react"
 import { SelectState, SelectCity, InformationCity } from "./features";
-import { NavBar } from "./components/NavBar";
-import { InfoApp } from "./components/InfoApp/index";
-import { Footer } from "./components/Footer/index";
-import { Box } from "@mui/system";
-import { Container } from "@mui/material";
+import { NavBar, Footer, Layout, AlertApp } from "./components";
+import InfoIcon from '@mui/icons-material/Info';
 
 function App() {
   return (
     <div>
       <NavBar />
-      <InfoApp />
-      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", flex: 1 }}>
-        <Container maxWidth="sm" >
-          <Box maxWidth="sm" sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-            <SelectState />
-            <SelectCity />
-            <InformationCity />
-          </Box>
-        </Container>
-      </Box>
+      <Layout>
+        <AlertApp
+          content="Selecione um estado, um município e visualize as informações da
+      microrregião, mesorregião, UF e região do município."
+          textIcon="Info"
+          startIcon={<InfoIcon />}
+        />
+        <SelectState />
+        <SelectCity />
+        <InformationCity />
+      </Layout>
       <Footer />
     </div>
   )

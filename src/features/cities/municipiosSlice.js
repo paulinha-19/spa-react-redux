@@ -10,8 +10,7 @@ export const getCities = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      throw rejectWithValue(error.message);
-      // throw error
+      throw rejectWithValue(`${error.code}. Status code: ${error.response.status}.`);
     }
   }
 );
@@ -32,10 +31,8 @@ const initialState = {
   citiesData: [],
   selectedCity: "",
   status: "idle",
-  message: "",
   loading: false,
-  isSuccess: false,
-  hasError: false,
+  hasError: null,
 };
 
 const citiesSlice = createSlice({
@@ -48,14 +45,14 @@ const citiesSlice = createSlice({
       state.status = "Carregando";
     });
     builder.addCase(getCities.fulfilled, (state, action) => {
-      state.loading = false;
-      state.isSuccess = true;
+      // state.loading = false;
+      // state.isSuccess = true;
       state.status = "Sucesso";
       state.citiesData = action.payload;
     });
     builder.addCase(getCities.rejected, (state, action) => {
       state.loading = false;
-      state.hasError = true;
+      // state.hasError = true;
       state.status = "Erro";
       state.hasError = action.payload; 
     });

@@ -8,8 +8,7 @@ export const getInformationCity = createAsyncThunk(
       const response = await instance.get(`municipios/${municipio}/distritos?orderBy=nome`);
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
-      // throw error
+      throw rejectWithValue(`${error.code}. Status code: ${error.response.status}`);
     }
   }
 );
@@ -17,9 +16,7 @@ export const getInformationCity = createAsyncThunk(
 const initialState = {
   dataInformation: [],
   status: "idle",
-  message: "",
   loading: false,
-  isSuccess: false,
   hasError: null
 };
 
@@ -29,7 +26,7 @@ const informationCitySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getInformationCity.pending, (state) => {
-      // state.loading = true;
+      state.loading = true;
       state.status = "Carregando";
     });
     builder.addCase(getInformationCity.fulfilled, (state, action) => {
@@ -39,7 +36,7 @@ const informationCitySlice = createSlice({
       state.dataInformation = action.payload;
     });
     builder.addCase(getInformationCity.rejected, (state, action) => {
-      // state.loading = false;
+      state.loading = false;
       state.hasError = action.payload; // action.error.message
       state.status = "Erro"
     });

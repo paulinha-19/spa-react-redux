@@ -8,8 +8,7 @@ export const getStates = createAsyncThunk(
       const response = await instance.get("estados?orderBy=nome");
       return response.data;
     } catch (error) {
-      throw rejectWithValue(error.message);
-      // throw error
+      throw rejectWithValue(`${error.code}. Status code: ${error.response.status}`);
     }
   }
 );
@@ -18,7 +17,6 @@ export const setState = createAsyncThunk(
   "state/setState",
   async (selectedState, { rejectWithValue }) => {
     try {
-      console.log("ESTADO SELECIONADO", selectedState);
       return selectedState;
     } catch (err) {
       return rejectWithValue([], err);
@@ -30,10 +28,8 @@ const initialState = {
   statesData: [],
   selectedState: "",
   status: "idle",
-  message: "",
   loading: false,
-  isSuccess: false,
-  hasError: false
+  hasError: null
 };
 
 const statesSlice = createSlice({
@@ -43,19 +39,19 @@ const statesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getStates.pending, (state) => {
       state.loading = true;
-      state.status = "Carregando...";
+      state.status = "Carregando";
     });
     builder.addCase(getStates.fulfilled, (state, action) => {
-      state.loading = false;
-      state.isSuccess = true;
+      // state.loading = false;
+      // state.isSuccess = true;
       state.status = "Sucesso";
       state.statesData = action.payload;
     });
     builder.addCase(getStates.rejected, (state, action) => {
       state.loading = false;
-      state.hasError = true;
-      state.status = "Erro";
-      state.message = action.payload; // action.error.message
+      // state.hasError = true;
+      state.hasError = action.payload;
+      state.status = "Erro"
     });
 
     builder.addCase(setState.fulfilled, (state, action) => {

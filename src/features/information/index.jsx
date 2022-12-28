@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformationCity } from "./informacaoSlice";
 import Loader from "../../styles/Spinner";
-import { AlertError } from "../../components/AlertError";
-import { Box, Card, CardContent, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { ModalApp } from "../../components/index";
+import { Box, Card, CardContent, List, ListItem, ListItemText } from '@mui/material';
 
 export const InformationCity = () => {
   const dispatch = useDispatch();
@@ -16,9 +16,7 @@ export const InformationCity = () => {
   const status = useSelector((state) => state?.informationCity?.status);
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(getInformationCity(selectedCity));
-    }, 3000)
+    dispatch(getInformationCity(selectedCity));
   }, [dispatch, selectedCity]);
 
   return (
@@ -28,7 +26,7 @@ export const InformationCity = () => {
           <Loader />
         </Box>
       ) : status === "Erro" ? (
-        <AlertError hasError={hasError}></AlertError>
+        <ModalApp severity="error" variant="filled" titleAlert="Erro" content={hasError} />
       ) :
         <Card sx={{ minWidth: 220, boxShadow: 2, padding: "0 20px", backgroundColor: "#EDEDED" }} variant="elevation">
           {information.map((item, i) => (
