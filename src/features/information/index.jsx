@@ -28,7 +28,7 @@ export const InformationCity = () => {
       ) : status === "Erro" ? (
         <ModalApp severity="error" variant="filled" titleAlert="Erro" content={hasError} />
       ) :
-        <Card sx={{ minWidth: 220, boxShadow: 2, padding: "0 20px", backgroundColor: "#EDEDED" }} variant="elevation">
+        <Card sx={{ minWidth: 220, boxShadow: 2, padding: "0 20px", backgroundColor: "secondary.main" }} variant="elevation">
           {information.map((item, i) => (
             <CardContent key={item.id}>
               <List>

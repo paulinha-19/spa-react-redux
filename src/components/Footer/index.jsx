@@ -3,9 +3,10 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React from 'react';
 
-const style = {
+const styleIcon = {
     fontSize: 30,
     marginLeft: 0.5,
+    color: "info.main"
 }
 
 const Copyright = (props) => {
@@ -13,7 +14,7 @@ const Copyright = (props) => {
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
             {new Date().getFullYear()}
-            {'.'}
+            {'. '}
             Paula Soares.
         </Typography>
     );
@@ -27,10 +28,10 @@ export const Footer = () => {
                     API-IBGE
                 </Typography>
                 <Link href='https://github.com/paulinha-19/sobre-mim' target="_blank">
-                    <GitHubIcon sx={style} />
+                    <GitHubIcon sx={styleIcon} />
                 </Link>
                 <Link href='https://www.linkedin.com/in/paulaso/' target="_blank" >
-                    <LinkedInIcon sx={style} />
+                    <LinkedInIcon sx={styleIcon} />
                 </Link>
                 <hr />
                 <Copyright sx={{ pb: 2 }} />
