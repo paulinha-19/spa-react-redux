@@ -1,3 +1,3 @@
-export * from './estados/index';
-export * from './municipios/index';
-export * from './informacoes/index';
+export * from './states/index';
+export * from './cities/index';
+export * from './information/index';

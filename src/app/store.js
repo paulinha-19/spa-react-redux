@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import estadosReducer from "../features/estados/estadosSlice";
-import municipiosReducer from "../features/municipios/municipiosSlice";
-import informacoesReducer from "../features/informacoes/informacaoSlice";
+import estadosReducer from "../features/states/estadosSlice";
+import municipiosReducer from "../features/cities/municipiosSlice";
+import informacoesReducer from "../features/information/informacaoSlice";
 const store = configureStore({
     reducer: {
-        estados: estadosReducer,
-        municipios: municipiosReducer,
-        informacoes: informacoesReducer
+        states: estadosReducer,
+        cities: municipiosReducer,
+        informationCity: informacoesReducer
     }
 });
 
