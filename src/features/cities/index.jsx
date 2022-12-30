@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getCities, setCity } from "../cities/municipiosSlice";
-import { ModalApp } from "../../components/index";
+import { ModalApp } from "../../components";
 
 export const SelectCity = () => {
   const dispatch = useDispatch();

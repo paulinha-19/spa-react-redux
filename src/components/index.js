@@ -3,3 +3,4 @@ export * from './Footer/index';
 export * from './Modal/index';
 export * from "./NavBar/index";
 export * from "./Layout/index";
+export * from "./ApiIbge/index";

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FormControl, InputLabel, MenuItem, Select, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getStates, setState } from "../states/estadosSlice";
-import {ModalApp} from "../../components/index"
+import {ModalApp} from "../../components"
 
 export const SelectState = () => {
   const dispatch = useDispatch();

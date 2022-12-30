@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformationCity } from "./informacaoSlice";
 import Loader from "../../styles/Spinner";
-import { ModalApp } from "../../components/index";
+import { ModalApp } from "../../components";
 import { Box, Card, CardContent, List, ListItem, ListItemText } from '@mui/material';
 
 export const InformationCity = () => {
@@ -28,7 +28,7 @@ export const InformationCity = () => {
       ) : status === "Erro" ? (
         <ModalApp severity="error" variant="filled" titleAlert="Erro" content={hasError} />
       ) :
-        <Card sx={{ minWidth: 220, boxShadow: 2, padding: "0 20px", backgroundColor: "secondary.main" }} variant="elevation">
+        <Card sx={{ backgroundColor: "secondary.main"}} variant="elevation">
           {information.map((item, i) => (
             <CardContent key={item.id}>
               <List>

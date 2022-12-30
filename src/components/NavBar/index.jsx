@@ -17,11 +17,10 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 250;
-const navItems = ['Inicio', 'Contato'];
+const navItems = ['Sobre'];
 
-export const NavBar = ({id}) => {
+export const NavBar = ({ id }) => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
-
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
@@ -32,7 +31,7 @@ export const NavBar = ({id}) => {
                 API-IBGE
             </Typography>
             <Divider />
-            {/* <List>
+            <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
@@ -40,7 +39,7 @@ export const NavBar = ({id}) => {
                         </ListItemButton>
                     </ListItem>
                 ))}
-            </List> */}
+            </List>
         </Box>
     );
 
@@ -66,13 +65,13 @@ export const NavBar = ({id}) => {
                     >
                         API-IBGE
                     </Typography>
-                    {/* <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
                             <Button key={item} sx={{ color: '#fff' }}>
                                 {item}
                             </Button>
                         ))}
-                    </Box> */}
+                    </Box>
                 </Toolbar>
             </AppBar>
             <Box component="nav">
