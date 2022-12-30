@@ -8,3 +8,8 @@ O desafio teve como objetivo criar um select para selecionar um estado, municíp
 
 `npm run dev`
 
+## Autor
+ #### Paula Soares
+ <a href= "https://www.linkedin.com/in/paulaso/" target=_blanck>Linkedin<a/>
+  <br>
+  <a href= "https://github.com/paulinha-19/portfolio-certificados" target=_blanck>Github<a/>
